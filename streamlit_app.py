@@ -26,6 +26,7 @@ if ingredient_list:
     for ingredient in ingredient_list:
         ingredient_string += ingredient + ' '
         st.subheader(ingredient + " Nutritian Information")
+        st.text("https://fruityvice.com/api/fruit/" + ingredient)
         fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + ingredient)
         fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
 
