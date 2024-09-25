@@ -25,7 +25,8 @@ ingredient_string = ''
 if ingredient_list:
     for ingredient in ingredient_list:
         ingredient_string += ingredient + ' '
-    # st.text(ingredient_string)
+        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+        fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
 
     time_to_submit = st.button('Submit Order')
     
@@ -39,7 +40,5 @@ if ingredient_list:
         st.success("""Your smoothie is ordered, '"""+ name_on_order+"""'""")
         st.stop()
 
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-st.text(fruityvice_response.json())
-fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
+
     
