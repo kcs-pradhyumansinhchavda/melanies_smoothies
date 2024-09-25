@@ -25,7 +25,8 @@ ingredient_string = ''
 if ingredient_list:
     for ingredient in ingredient_list:
         ingredient_string += ingredient + ' '
-        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+        st.subheader(ingredient + " Nutritian Information")
+        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + ingredient)
         fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
 
     time_to_submit = st.button('Submit Order')
