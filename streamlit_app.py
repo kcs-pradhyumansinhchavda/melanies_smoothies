@@ -25,12 +25,12 @@ ingredient_list = st.multiselect('Choose up to 5 ingrediants:', my_dataframe,
 #convert to pandas dataframe
 pd_df = my_dataframe.to_pandas()
 st.dataframe(pd_df)
-st.stop()
 
 ingredient_string = ''
 if ingredient_list:
     for ingredient in ingredient_list:
         search_on =pd_df.loc[pd_df["FRUIT_NAME"]==ingredient, 'SEARCH_ON'].iloc[0]
+        st.text(search_on)
         ingredient_string += ingredient + ' '
         st.subheader(ingredient + " Nutritian Information")
         st.text("https://fruityvice.com/api/fruit/" + ingredient)
